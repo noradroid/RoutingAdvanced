@@ -2,7 +2,7 @@
 <ul class="heroes">
   <li *ngFor="let hero of heroes$ | async" [class.selected]="hero.id === selectedId">
     <button type="button"
-      [routerLink]="['/heroes', hero.id]" >
+      [routerLink]="['/hero', hero.id]" >
       <span class="badge">{{hero.id}}</span>
       <span class="name">{{hero.name}}</span>
     </button>

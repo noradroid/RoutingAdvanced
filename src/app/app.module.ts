@@ -7,21 +7,18 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AppRoutingModule } from './app-routing.module';
 import { HeroesModule } from './heroes/heroes.module';
 import { FormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CrisisListComponent,
-    PageNotFoundComponent
-  ],
+  declarations: [AppComponent, CrisisListComponent, PageNotFoundComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HeroesModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
