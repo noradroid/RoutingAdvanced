@@ -26,11 +26,15 @@ export class CrisisDetailComponent implements OnInit {
     // );
 
     const id = this.route.snapshot.paramMap.get('id');
-    this.crisisService.getCrisis(String(id)).subscribe(crisis => this.crisis = crisis)
+    this.crisisService
+      .getCrisis(String(id))
+      .subscribe((crisis) => (this.crisis = crisis));
   }
 
-  gotoCrisisCenter(crisis: Crisis) {
+  gotoCrises(crisis: Crisis) {
     const id = crisis ? crisis.id : null;
-    this.router.navigate(['/crisises', { id: id, name: "food"}]);
+    this.router.navigate(['../', { id: id, foo: 'food' }], {
+      relativeTo: this.route,
+    });
   }
 }
