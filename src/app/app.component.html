@@ -1,11 +1,17 @@
 <h1>Advanced Routing Concepts</h1>
 
 <nav>
-  <a routerLink="/crisis-center" routerLinkActive="active" ariaCurrentWhenActive="page">Crisis Center</a>
-  <a routerLink="/heroes" routerLinkActive="active" ariaCurrentWhenActive="page">Heroes</a>
-  <a [routerLink]="[{ outlets: { popup: ['compose']}}]" routerLinkActive="active"
-    ariaCurrentWhenActive="page">
+  <a routerLink="/crisis-center" routerLinkActive="active" ariaCurrentWhenActive="page">
+    Crisis Center
+  </a>
+  <a routerLink="/heroes" routerLinkActive="active" ariaCurrentWhenActive="page">
+    Heroes
+  </a>
+  <a [routerLink]="[{ outlets: { popup: ['compose']}}]" routerLinkActive="active" ariaCurrentWhenActive="page">
     Contact
+  </a>
+  <a routerLink="/admin" routerLinkActive="active" ariaCurrentWhenActive="page">
+    Admin
   </a>
 </nav>
 
