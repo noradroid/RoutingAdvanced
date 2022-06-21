@@ -1,9 +1,9 @@
 /* HeroesComponent's private CSS styles */
 .crises {
   margin: 0 0 2em 0;
+  display: inline-block;
   list-style-type: none;
   padding: 0;
-  width: 15em;
 }
 
 .crises li {
@@ -21,7 +21,7 @@
   border-radius: 4px;
   display: flex;
   align-items: stretch;
-  height: 1.8em;
+  height: auto;
 }
 
 .crises button:hover {
@@ -63,4 +63,5 @@
 
 .crises .name {
   align-self: center;
+  padding: 5px;
 }
