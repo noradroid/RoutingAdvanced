@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
-import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login/login.component';
 import { DialogBoxModule } from './dialog-box/dialog-box.module';
 
@@ -26,7 +25,6 @@ import { DialogBoxModule } from './dialog-box/dialog-box.module';
     DialogBoxModule,
     HeroesModule,
     CrisisCenterModule,
-    AdminModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
