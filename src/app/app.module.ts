@@ -10,9 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AdminModule } from './admin/admin.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, PageNotFoundComponent, ComposeMessageComponent],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent,
+    ComposeMessageComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
