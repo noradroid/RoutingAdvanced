@@ -11,22 +11,24 @@ import { CrisisCenterModule } from './crisis-center/crisis-center.module';
 import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { AdminModule } from './admin/admin.module';
 import { LoginComponent } from './login/login.component';
+import { DialogBoxModule } from './dialog-box/dialog-box.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     ComposeMessageComponent,
-    LoginComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    DialogBoxModule,
     HeroesModule,
     CrisisCenterModule,
     AdminModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

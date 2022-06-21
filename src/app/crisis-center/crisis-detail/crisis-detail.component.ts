@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
+import { ConfirmationService } from 'src/app/confirmation.service';
 
 import { Crisis } from '../crisis';
 import { CrisisService } from '../crisis.service';
@@ -11,12 +12,14 @@ import { CrisisService } from '../crisis.service';
   styleUrls: ['./crisis-detail.component.css'],
 })
 export class CrisisDetailComponent implements OnInit {
-  crisis: Crisis | undefined;
+  crisis!: Crisis;
+  editName: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private crisisService: CrisisService
+    private crisisService: CrisisService,
+    public confirmationService: ConfirmationService
   ) {}
 
   ngOnInit() {
@@ -26,13 +29,31 @@ export class CrisisDetailComponent implements OnInit {
     // );
 
     const id = this.route.snapshot.paramMap.get('id');
-    this.crisisService
-      .getCrisis(String(id))
-      .subscribe((crisis) => (this.crisis = crisis));
+    this.crisisService.getCrisis(String(id)).subscribe((crisis) => {
+      this.crisis = crisis;
+      this.editName = this.crisis.name;
+    });
   }
 
-  gotoCrises(crisis: Crisis) {
-    const id = crisis ? crisis.id : null;
+  canDeactivate(): Observable<boolean> | boolean {
+    if (!this.crisis || this.crisis.name === this.editName) {
+      return true;
+    }
+
+    return this.confirmationService.confirm('Discard changes?');
+  }
+
+  save() {
+    this.crisis.name = this.editName;
+    this.gotoCrises();
+  }
+
+  cancel() {
+    this.gotoCrises();
+  }
+
+  gotoCrises() {
+    const id = this.crisis ? this.crisis.id : null;
     this.router.navigate(['../', { id: id, foo: 'food' }], {
       relativeTo: this.route,
     });

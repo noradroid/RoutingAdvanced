@@ -3,10 +3,11 @@
   <div><span>id: </span>{{crisis.id}}</div>
   <div>
     <label for="crisis-name">Crisis name: </label>
-    <input id="crisis-name" [(ngModel)]="crisis.name" placeholder="name"/>
+    <input id="crisis-name" [(ngModel)]="editName" placeholder="name"/>
   </div>
 
   <div>
-    <button type="button" (click)="gotoCrises(crisis)">Go back</button>
+    <button type="button" (click)="save()">Save</button>
+    <button type="button" (click)="gotoCrises()">Go back</button>
   </div>
 </div>
