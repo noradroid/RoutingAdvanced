@@ -3,6 +3,7 @@ import {
   ActivatedRouteSnapshot,
   CanActivate,
   CanActivateChild,
+  NavigationExtras,
   Router,
   RouterStateSnapshot,
   UrlTree,
@@ -46,8 +47,20 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     // store the URL the user was trying to access
     this.authService.redirectUrl = url;
 
+    // create a dummy session id
+    const sessionId = 123456789;
+
+    // set a navigationExtras object that contains global query params and fragment
+    const navigationExtras: NavigationExtras = {
+      queryParams: { session_id: sessionId },
+      fragment: 'anchor',
+    };
+
     // return a UrlTree object with the url 'login'
     // so user is redirected to login page
-    return this.router.parseUrl('/login');
+    // return this.router.parseUrl('/login');
+
+    // we need to use createUrlTree to send with extras
+    return this.router.createUrlTree(['/login'], navigationExtras);
   }
 }

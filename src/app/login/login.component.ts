@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -23,10 +23,16 @@ export class LoginComponent {
     this.authService.login().subscribe(() => {
       this.message = this.getMessage();
       if (this.authService.isLoggedIn) {
-        // const redirectUrl = this.authService.redirectUrl;
-        const redirectUrl = '/admin';
+        const redirectUrl = this.authService.redirectUrl;
+        if (redirectUrl) {
+          // pass on global query params and fragment
+          const navigationExtras: NavigationExtras = {
+            queryParamsHandling: 'preserve',
+            preserveFragment: true,
+          };
 
-        this.router.navigate([redirectUrl]);
+          this.router.navigate([redirectUrl], navigationExtras);
+        }
       }
     });
   }

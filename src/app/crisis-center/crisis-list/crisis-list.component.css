@@ -35,17 +35,17 @@
   color: #fafafa;
 }
 
-.crises button.selected {
+.crises .selected button{
   background-color: black;
   color: white;
 }
 
-.crises button.selected:hover {
+.crises .selected button:hover {
   background-color: #505050;
   color: white;
 }
 
-.crises button.selected:active {
+.crises .selected button:active {
   background-color: black;
   color: white;
 }

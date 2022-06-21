@@ -35,17 +35,17 @@
     color: #fafafa;
   }
   
-  .heroes button.selected {
+  .heroes .selected button {
     background-color: black;
     color: white;
   }
   
-  .heroes button.selected:hover {
+  .heroes .selected button:hover {
     background-color: #505050;
     color: white;
   }
   
-  .heroes button.selected:active {
+  .heroes .selected button:active {
     background-color: black;
     color: white;
   }
